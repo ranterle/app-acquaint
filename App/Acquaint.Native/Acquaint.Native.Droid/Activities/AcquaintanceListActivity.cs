@@ -254,7 +254,7 @@ namespace Acquaint.Native.Droid
 				await ImageService
 					.Instance
 					.LoadUrl(acquaintance.SmallPhotoUrl, TimeSpan.FromHours(Settings.ImageCacheDurationHours))  // get the image from a URL
-					.LoadingPlaceholder("placeholderProfileImage.png")                                          // specify a placeholder image
+					//.LoadingPlaceholder("placeholderProfileImage.png")                                          // specify a placeholder image
 					.Transform(new CircleTransformation())                                                      // transform the image to a circle
 					.Error(e => System.Diagnostics.Debug.WriteLine(e.Message))
 					.IntoAsync(viewHolder.ProfilePhotoImageView);         
