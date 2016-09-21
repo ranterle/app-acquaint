@@ -1,4 +1,5 @@
 using System;
+using System.Net.Http;
 using Acquaint.Abstractions;
 using Acquaint.Common.Droid;
 using Acquaint.Data;
@@ -9,6 +10,7 @@ using Android.OS;
 using Android.Runtime;
 using Autofac;
 using Autofac.Extras.CommonServiceLocator;
+using FFImageLoading;
 using HockeyApp.Android;
 using Microsoft.Practices.ServiceLocation;
 using Plugin.CurrentActivity;
