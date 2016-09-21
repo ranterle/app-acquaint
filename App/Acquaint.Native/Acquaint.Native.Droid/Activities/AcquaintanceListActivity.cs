@@ -226,7 +226,7 @@ namespace Acquaint.Native.Droid
 		}
 
 		// populates the properties of the child views of the itemView
-		public override async void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
+		public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
 		{
 			// instantiate a new view holder
 			var viewHolder = holder as AcquaintanceViewHolder;
@@ -250,14 +250,14 @@ namespace Acquaint.Native.Droid
 			if (string.IsNullOrWhiteSpace(acquaintance.SmallPhotoUrl))
 				viewHolder.ProfilePhotoImageView.SetImageBitmap(null);
 			else
-				// use FFImageLoading library to asynchronously:
-				await ImageService
+				// use FFImageLoading library:
+				ImageService
 					.Instance
 					.LoadUrl(acquaintance.SmallPhotoUrl, TimeSpan.FromHours(Settings.ImageCacheDurationHours))  // get the image from a URL
 					//.LoadingPlaceholder("placeholderProfileImage.png")                                          // specify a placeholder image
 					.Transform(new CircleTransformation())                                                      // transform the image to a circle
 					.Error(e => System.Diagnostics.Debug.WriteLine(e.Message))
-					.IntoAsync(viewHolder.ProfilePhotoImageView);         
+					.Into(viewHolder.ProfilePhotoImageView);         
 		}
 
 		public void OnClick(View view)
