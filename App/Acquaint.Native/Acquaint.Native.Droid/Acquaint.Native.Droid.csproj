@@ -171,13 +171,13 @@
       <HintPath>..\..\packages\Autofac.4.1.0\lib\netstandard1.1\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="FFImageLoading.Platform">
-      <HintPath>..\..\packages\Xamarin.FFImageLoading.2.1.8-pre-146\lib\MonoAndroid10\FFImageLoading.Platform.dll</HintPath>
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.2.1.8-pre-150\lib\MonoAndroid10\FFImageLoading.Platform.dll</HintPath>
     </Reference>
     <Reference Include="FFImageLoading">
-      <HintPath>..\..\packages\Xamarin.FFImageLoading.2.1.8-pre-146\lib\MonoAndroid10\FFImageLoading.dll</HintPath>
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.2.1.8-pre-150\lib\MonoAndroid10\FFImageLoading.dll</HintPath>
     </Reference>
     <Reference Include="FFImageLoading.Transformations">
-      <HintPath>..\..\packages\Xamarin.FFImageLoading.Transformations.2.1.8-pre-146\lib\MonoAndroid10\FFImageLoading.Transformations.dll</HintPath>
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.Transformations.2.1.8-pre-150\lib\MonoAndroid10\FFImageLoading.Transformations.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
