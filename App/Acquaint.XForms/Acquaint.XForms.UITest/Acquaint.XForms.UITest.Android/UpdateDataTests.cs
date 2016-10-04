@@ -32,6 +32,22 @@ namespace Acquaint.XForms.UITest.Android
 		}
 
 		[Test]
+		[Category("ci")]
+		public void DisplayContactDetails()
+		{
+			app.Screenshot("App Started");
+			app.EnterText(x => x.Class("EntryEditText"), "UseLocalDataSource");
+			app.Screenshot("Entered data parition phrase");
+			app.Tap(x => x.Text("Continue"));
+			app.WaitForElement(x => x.Marked("Armstead, Evan"));
+			Thread.Sleep(3000); // wait a few seconds for list images to fully load
+			app.Screenshot("Display list");
+			app.Tap(x => x.Text("Armstead, Evan"));
+			Thread.Sleep(3000); // wait 3 seconds to give map time to fully render
+			app.Screenshot("Detail screen");
+		}
+
+		[Test]
 		public void UpdateFirstName()
 		{
 			app.Screenshot("App Started");

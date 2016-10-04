@@ -32,6 +32,23 @@ namespace Acquaint.Native.UITest.Android
 		}
 
 		[Test]
+		[Category("ci")]
+		public void ViewContactDetails()
+		{
+			app.Screenshot("App Started");
+			app.Tap(x => x.Id("setupDataPartitionPhraseField"));
+			app.EnterText("UseLocalDataSource");
+			app.Screenshot("Entered data parition phrase");
+			app.Tap(x => x.Id("setupContinueButton"));
+			app.WaitForElement(x => x.Marked("Armstead, Evan"));
+			Thread.Sleep(3000); // wait a few seconds for list images to fully load
+			app.Screenshot("Display list");
+			app.Tap(x => x.Marked("Armstead, Evan"));
+			Thread.Sleep(3000); // wait 3 seconds to give map time to fully render
+			app.Screenshot("Detail screen");
+		}
+
+		[Test]
 		public void UpdateFirstName()
 		{
 			app.Screenshot("App Started");
