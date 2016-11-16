@@ -30,7 +30,7 @@
     <MtouchProfiling>True</MtouchProfiling>
     <MtouchI18n>other</MtouchI18n>
     <MtouchSdkVersion>10.1</MtouchSdkVersion>
-    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchLink>None</MtouchLink>
     <MtouchUseLlvm>False</MtouchUseLlvm>
     <MtouchUseThumb>False</MtouchUseThumb>
     <MtouchEnableBitcode>False</MtouchEnableBitcode>
