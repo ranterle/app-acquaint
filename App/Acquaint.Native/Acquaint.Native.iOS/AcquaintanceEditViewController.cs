@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using Acquaint.Abstractions;
-using Acquaint.Data;
 using Acquaint.Models;
+using Microsoft.Azure.Mobile.Analytics;
 using Microsoft.Practices.ServiceLocation;
 using UIKit;
 
@@ -89,9 +90,15 @@ namespace Acquaint.Native.iOS
 
 
 					if (_IsNew)
+					{
 						await _DataSource.AddItem(_Acquaintance);
+						Analytics.TrackEvent($"Acquaintance Added", new Dictionary<string, string> {{ "Name", _Acquaintance?.DisplayName }});
+					}
 					else
+					{
 						await _DataSource.UpdateItem(_Acquaintance);
+						Analytics.TrackEvent($"Acquaintance Updated", new Dictionary<string, string> {{ "Name", _Acquaintance?.DisplayName }});
+					}
 
 					NavigationController.PopViewController(true);
 				}

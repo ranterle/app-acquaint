@@ -15,6 +15,7 @@ using Android.Support.V7.App;
 using Android.Transitions;
 using Android.Views;
 using Android.Widget;
+using Microsoft.Azure.Mobile.Analytics;
 using Microsoft.Practices.ServiceLocation;
 using Plugin.ExternalMaps;
 using Plugin.ExternalMaps.Abstractions;
@@ -78,6 +79,8 @@ namespace Acquaint.Native.Droid
 			SetupViews();
 
 			SetupAnimations();
+
+			Analytics.TrackEvent($"Viewed Acquaintance Details: {_Acquaintance?.DisplayName}");
 		}
 
 		void SetupViews()

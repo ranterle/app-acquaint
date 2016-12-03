@@ -1,10 +1,12 @@
-﻿using Acquaint.Abstractions;
+﻿using System.Collections.Generic;
+using Acquaint.Abstractions;
 using Acquaint.Models;
 using Android.App;
 using Android.OS;
 using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
+using Microsoft.Azure.Mobile.Analytics;
 using Microsoft.Practices.ServiceLocation;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 
@@ -202,10 +204,12 @@ namespace Acquaint.Native.Droid
 			if (_IsNewAcquaintance)
 			{
 				_DataSource.AddItem(_Acquaintance);
+				Analytics.TrackEvent($"Acquaintance Added", new Dictionary<string, string> {{ "Name", _Acquaintance?.DisplayName }});
 			}
 			else
 			{
 				_DataSource.UpdateItem(_Acquaintance);
+				Analytics.TrackEvent($"Acquaintance Updated", new Dictionary<string, string> {{ "Name", _Acquaintance?.DisplayName }});
 			}
 
 			OnBackPressed();

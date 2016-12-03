@@ -10,7 +10,9 @@ using Android.OS;
 using Autofac;
 using Autofac.Extras.CommonServiceLocator;
 using FFImageLoading.Forms.Droid;
-using HockeyApp.Android;
+using Microsoft.Azure.Mobile;
+using Microsoft.Azure.Mobile.Analytics;
+using Microsoft.Azure.Mobile.Crashes;
 using Microsoft.Practices.ServiceLocation;
 using Xamarin;
 using Xamarin.Forms;
@@ -27,13 +29,16 @@ namespace Acquaint.XForms.Droid
 
 		protected override void OnCreate (Bundle bundle)
 		{
+			// Start Mobile Center services
+			MobileCenter.Start("b57ff7cf-f0fd-4fed-9fad-296f56afeab9", typeof(Analytics), typeof(Crashes));
+
 			RegisterDependencies();
 
 			Settings.OnDataPartitionPhraseChanged += (sender, e) => {
 				UpdateDataSourceIfNecessary();
 			};
 
-			// Azure Mobile Services initilizatio
+			// Azure App Service initialization
 			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
 
 			CachedImageRenderer.Init();
@@ -42,9 +47,6 @@ namespace Acquaint.XForms.Droid
 			FormsAppCompatActivity.ToolbarResource = Resource.Layout.toolbar;
 
 			base.OnCreate (bundle);
-
-			// register HockeyApp as the crash reporter
-			CrashManager.Register(this, Settings.HockeyAppId);
 
 			Forms.Init (this, bundle);
 

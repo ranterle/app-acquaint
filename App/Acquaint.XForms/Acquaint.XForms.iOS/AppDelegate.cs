@@ -8,7 +8,9 @@ using Autofac;
 using Autofac.Extras.CommonServiceLocator;
 using FFImageLoading.Forms.Touch;
 using Foundation;
-using HockeyApp.iOS;
+using Microsoft.Azure.Mobile;
+using Microsoft.Azure.Mobile.Analytics;
+using Microsoft.Azure.Mobile.Crashes;
 using Microsoft.Practices.ServiceLocation;
 using UIKit;
 using Xamarin;
@@ -25,19 +27,14 @@ namespace Acquaint.XForms.iOS
 
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-			var manager = BITHockeyManager.SharedHockeyManager;
-			manager.Configure(Settings.HockeyAppId);
-			manager.StartManager();
+			// Start Mobile Center services
+			MobileCenter.Start("68bdad11-ca93-49f9-bbe2-f2d648ec9f06", typeof(Analytics), typeof(Crashes));
 
 			RegisterDependencies();
 
 			Settings.OnDataPartitionPhraseChanged += (sender, e) => {
 				UpdateDataSourceIfNecessary();
 			};
-
-			#if ENABLE_TEST_CLOUD
-			Xamarin.Calabash.Start();
-			#endif
 
             Forms.Init();
 

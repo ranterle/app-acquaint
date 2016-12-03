@@ -1,5 +1,6 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Maps;
+using Microsoft.Azure.Mobile.Analytics;
 using System.Threading.Tasks;
 using System;
 
@@ -17,6 +18,8 @@ namespace Acquaint.XForms
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+
+            Analytics.TrackEvent($"Viewed Acquaintance Details: {ViewModel?.Acquaintance?.DisplayName}");
 
             // Typically, is preferable to call into the viewmodel for OnAppearing() logic to be performed,
             // but we're not doing that in this case because we need to interact with the Xamarin.Forms.Map property on this Page.

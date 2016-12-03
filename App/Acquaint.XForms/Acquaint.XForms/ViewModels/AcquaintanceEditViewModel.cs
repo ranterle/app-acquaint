@@ -2,8 +2,10 @@
 using Acquaint.Util;
 using FormsToolkit;
 using Xamarin.Forms;
+using Microsoft.Azure.Mobile.Analytics;
 using AutoMapper;
 using Acquaint.Models;
+using System.Collections.Generic;
 
 namespace Acquaint.XForms
 {
@@ -63,10 +65,12 @@ namespace Acquaint.XForms
 			if (_IsNewAcquaintance)
 			{
 				MessagingService.Current.SendMessage<Acquaintance>(MessageKeys.AddAcquaintance, Acquaintance);
+				Analytics.TrackEvent($"Acquaintance Added", new Dictionary<string, string> {{ "Name", Acquaintance?.DisplayName }});
 			}
 			else 
 			{
 				MessagingService.Current.SendMessage<Acquaintance>(MessageKeys.UpdateAcquaintance, Acquaintance);
+				Analytics.TrackEvent($"Acquaintance Updated", new Dictionary<string, string> { { "Name", Acquaintance?.DisplayName } });
 			}
 			await PopAsync();
 		}

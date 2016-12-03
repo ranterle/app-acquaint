@@ -7,7 +7,9 @@ using Acquaint.Util;
 using Autofac;
 using Autofac.Extras.CommonServiceLocator;
 using Foundation;
-using HockeyApp.iOS;
+using Microsoft.Azure.Mobile;
+using Microsoft.Azure.Mobile.Analytics;
+using Microsoft.Azure.Mobile.Crashes;
 using Microsoft.Practices.ServiceLocation;
 using UIKit;
 
@@ -30,19 +32,14 @@ namespace Acquaint.Native.iOS
 		// Method invoked after the application has launched to configure the main window and view controller.
 		public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
 		{
-			var manager = BITHockeyManager.SharedHockeyManager;
-			manager.Configure(Settings.HockeyAppId);
-			manager.StartManager();
+			// Start Mobile Center services
+			MobileCenter.Start("d7c111d7-64a1-4d7c-a128-6bd0bce68cee", typeof(Analytics), typeof(Crashes));
 
 			RegisterDependencies();
 
 			Settings.OnDataPartitionPhraseChanged += (sender, e) => {
 				UpdateDataSourceIfNecessary();
 			};
-
-#if ENABLE_TEST_CLOUD
-			Xamarin.Calabash.Start();
-#endif
 
 			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
 

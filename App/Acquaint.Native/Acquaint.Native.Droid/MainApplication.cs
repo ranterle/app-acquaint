@@ -9,7 +9,9 @@ using Android.OS;
 using Android.Runtime;
 using Autofac;
 using Autofac.Extras.CommonServiceLocator;
-using HockeyApp.Android;
+using Microsoft.Azure.Mobile;
+using Microsoft.Azure.Mobile.Analytics;
+using Microsoft.Azure.Mobile.Crashes;
 using Microsoft.Practices.ServiceLocation;
 using Plugin.CurrentActivity;
 
@@ -26,6 +28,9 @@ namespace Acquaint.Native.Droid
 
         public override void OnCreate()
         {
+			// Start Mobile Center services
+			MobileCenter.Start("00066ec4-6818-4f64-80b3-16a59adb7631", typeof(Analytics), typeof(Crashes));
+
 			RegisterDependencies();
 
 			Settings.OnDataPartitionPhraseChanged += (sender, e) => {
@@ -36,8 +41,6 @@ namespace Acquaint.Native.Droid
 			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
 
             base.OnCreate();
-
-			CrashManager.Register(this, Settings.HockeyAppId);
 
             RegisterActivityLifecycleCallbacks(this);
         }

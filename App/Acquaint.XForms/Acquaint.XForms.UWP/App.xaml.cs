@@ -69,7 +69,7 @@ namespace Acquaint.XForms.UWP
 
                 Xamarin.Forms.Forms.Init(e);
 
-                Xamarin.FormsMaps.Init(Settings.BingMapsKey);
+                Xamarin.FormsMaps.Init("UW0peICp3gljJyhqQKFZ~R3XF1I5BvWmWmkD4ujytTA~AoUOqpk2nJB-Wh7wH-9S-zaG-w6sygLitXugNOqm71wx_nc6WHIt6Lb29gyTU04X");
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {

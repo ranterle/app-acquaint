@@ -8,6 +8,7 @@ using CoreLocation;
 using FFImageLoading;
 using FFImageLoading.Transformations;
 using MapKit;
+using Microsoft.Azure.Mobile.Analytics;
 using Microsoft.Practices.ServiceLocation;
 using ObjCRuntime;
 using Plugin.ExternalMaps;
@@ -117,6 +118,8 @@ namespace Acquaint.Native.iOS
 					DisplayErrorAlertView("Geocoding Error", "Please make sure the address is valid and that you have a network connection.");
 				}
 			}
+
+			Analytics.TrackEvent($"Viewed Acquaintance Details: {Acquaintance?.DisplayName}");
 		}
 
 		public override void ViewDidLoad()
