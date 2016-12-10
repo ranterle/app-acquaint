@@ -14,9 +14,9 @@
     "Xam.Plugin.ExternalMaps": "3.0.0",
     "Xam.Plugins.Messaging": "3.2.1",
     "Xam.Plugins.Settings": "2.5.1",
-    "Xamarin.FFImageLoading": "2.1.7",
-    "Xamarin.FFImageLoading.Forms": "2.1.7",
-    "Xamarin.FFImageLoading.Transformations": "2.1.7",
+    "Xamarin.FFImageLoading": "2.2.5",
+    "Xamarin.FFImageLoading.Forms": "2.2.5",
+    "Xamarin.FFImageLoading.Transformations": "2.2.5",
     "Xamarin.Forms.Maps": "2.3.3.175"
   },
   "frameworks": {
