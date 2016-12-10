@@ -16,33 +16,21 @@
 							<TableSection Title="Data Partition Phrase (required)">
 								<ViewCell>
 									<StackLayout>
-										<Entry x:Name="DataPartitionPhraseEntry" Text="{Binding DataPartitionPhrase}" Placeholder="Enter a unique phrase" Keyboard="Text">
-											<Entry.FontSize>
-												<OnPlatform x:TypeArguments="Font" iOS="Micro" />
-											</Entry.FontSize>
-										</Entry>
+										<Entry x:Name="DataPartitionPhraseEntry" Text="{Binding DataPartitionPhrase}" Placeholder="Enter a unique phrase" Keyboard="Text" />
 									</StackLayout>
 								</ViewCell>
 							</TableSection>
 							<TableSection Title="Backend URL (required valid URL)">
 								<ViewCell>
 									<StackLayout>
-										<Entry x:Name="BackendServiceUrlEntry" Text="{Binding AzureAppServiceUrl}" Placeholder="ex: http://yourservice.azurewebsites.net" Keyboard="Text">
-											<Entry.FontSize>
-												<OnPlatform x:TypeArguments="Font" iOS="Micro" />
-											</Entry.FontSize>
-										</Entry>
+										<Entry x:Name="BackendServiceUrlEntry" Text="{Binding AzureAppServiceUrl}" Placeholder="ex: http://yourservice.azurewebsites.net" Keyboard="Text" />
 									</StackLayout>
 								</ViewCell>
 							</TableSection>
 							<TableSection Title="Image Cache Duration (in hours)">
 								<ViewCell>
 									<StackLayout>
-										<Entry Text="{Binding ImageCacheDurationHours}" Keyboard="Numeric">
-											<Entry.FontSize>
-												<OnPlatform x:TypeArguments="Font" iOS="Micro" />
-											</Entry.FontSize>
-										</Entry>
+										<Entry Text="{Binding ImageCacheDurationHours}" Keyboard="Numeric" />
 									</StackLayout>
 								</ViewCell>
 							</TableSection>
